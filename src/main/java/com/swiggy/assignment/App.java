@@ -2,10 +2,22 @@ package com.swiggy.assignment;
 
 import java.util.Scanner;
 
+/**
+ * This is the Main class.
+ */
+
 public class App {
+
+    /** 
+    * This is the main method which makes use of playGame method. 
+    * @param args Unused. 
+    * @return Nothing. 
+    */
+
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
+        try{
         // Input for Player A
         System.out.println("Enter details for Player A:");
         System.out.print("Name: ");
@@ -34,5 +46,9 @@ public class App {
 
         MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);
         magicalArena.playGame();
+    } finally {
+        // Close the scanner in a finally block to ensure it gets closed even if an exception occurs
+        scanner.close();
+    }
     }
 }

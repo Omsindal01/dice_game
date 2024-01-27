@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">dice-game</a> &gt; <a href="index.source.html" class="el_package">com.swiggy.assignment</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package com.swiggy.assignment;
 
-<span class="nc" id="L3">public class App {</span>
-    public static void main(String[] args) throws Exception {
-<span class="nc" id="L5">        Player playerA = new Player(&quot;A&quot;,50, 5, 10);</span>
-<span class="nc" id="L6">        Player playerB = new Player(&quot;B&quot;,100, 10, 15);</span>
+import java.util.Scanner;
 
-<span class="nc" id="L8">        MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);</span>
-<span class="nc" id="L9">        magicalArena.playGame();</span>
-<span class="nc" id="L10">    }</span>
+<span class="nc" id="L5">public class App {</span>
+    public static void main(String[] args) throws Exception {
+<span class="nc" id="L7">        Scanner scanner = new Scanner(System.in);</span>
+
+        // Input for Player A
+<span class="nc" id="L10">        System.out.println(&quot;Enter details for Player A:&quot;);</span>
+<span class="nc" id="L11">        System.out.print(&quot;Name: &quot;);</span>
+<span class="nc" id="L12">        String nameA = scanner.next();</span>
+<span class="nc" id="L13">        System.out.print(&quot;Health: &quot;);</span>
+<span class="nc" id="L14">        int healthA = scanner.nextInt();</span>
+<span class="nc" id="L15">        System.out.print(&quot;Strength: &quot;);</span>
+<span class="nc" id="L16">        int strengthA = scanner.nextInt();</span>
+<span class="nc" id="L17">        System.out.print(&quot;Attack: &quot;);</span>
+<span class="nc" id="L18">        int attackA = scanner.nextInt();</span>
+
+        // Input for Player B
+<span class="nc" id="L21">        System.out.println(&quot;Enter details for Player B:&quot;);</span>
+<span class="nc" id="L22">        System.out.print(&quot;Name: &quot;);</span>
+<span class="nc" id="L23">        String nameB = scanner.next();</span>
+<span class="nc" id="L24">        System.out.print(&quot;Health: &quot;);</span>
+<span class="nc" id="L25">        int healthB = scanner.nextInt();</span>
+<span class="nc" id="L26">        System.out.print(&quot;Strength: &quot;);</span>
+<span class="nc" id="L27">        int strengthB = scanner.nextInt();</span>
+<span class="nc" id="L28">        System.out.print(&quot;Attack: &quot;);</span>
+<span class="nc" id="L29">        int attackB = scanner.nextInt();</span>
+
+        // Creating Player instances
+<span class="nc" id="L32">        Player playerA = new Player(nameA, healthA, strengthA, attackA);</span>
+<span class="nc" id="L33">        Player playerB = new Player(nameB, healthB, strengthB, attackB);</span>
+
+<span class="nc" id="L35">        MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);</span>
+<span class="nc" id="L36">        magicalArena.playGame();</span>
+<span class="nc" id="L37">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

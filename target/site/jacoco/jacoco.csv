@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 dice-game,com.swiggy.assignment,Player,0,47,0,4,0,15,0,9,0,7
-dice-game,com.swiggy.assignment,App,29,0,0,0,6,0,2,0,2,0
+dice-game,com.swiggy.assignment,App,88,0,0,0,25,0,2,0,2,0
 dice-game,com.swiggy.assignment,Dice,11,17,0,0,4,5,1,2,1,2
 dice-game,com.swiggy.assignment,MagicalArena,21,207,2,22,6,38,3,15,1,5

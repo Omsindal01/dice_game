@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.swiggy.assignment.DiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.414 s - in com.swiggy.assignment.DiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.238 s - in com.swiggy.assignment.DiceTest
