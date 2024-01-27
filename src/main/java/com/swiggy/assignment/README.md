@@ -60,6 +60,8 @@ mvn exec:java
 
 Upon running the game you will be asked to enter the health, strength & attack attributes fo both the players PlayerA and PlayerB. Upon providing these attributes you will be able to see the result of every turn/attack between the players, how much damage caused in that turn & the final result of the game.
 
+The code coverage report can be found in the directory "/target/site/jacoco/index.html". The line coverage is 68% and branch coverage is 92%.
+
 ## Game Rules
 
 - Each player has health, strength, and attack attributes.
@@ -70,7 +72,3 @@ Upon running the game you will be asked to enter the health, strength & attack a
 ## Contributing
 
 ## License
-
-```
-
-```
