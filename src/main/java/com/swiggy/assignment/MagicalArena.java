@@ -62,13 +62,15 @@ public class MagicalArena {
         Player attacker = (playerA.getHealth() < playerB.getHealth()) ? playerA : playerB;
         Player defender = (attacker == playerA) ? playerB : playerA;
 
+        // The game will continue until both players has a health > 0
         while (playerA.isAlive() && playerB.isAlive()) {
 
+            // The game needs to be stopped, if both players can't cause damage to each other, because it will run forever otherwise.
             if(!isValidInput()) {
-                System.out.println("Invalid input: Both players cannot damage each other.");
                 break;
             }
 
+            // Players play a single turn of the game
             playTurn(attacker, defender);
     
             // Check if the game has ended after the current turn
@@ -81,6 +83,7 @@ public class MagicalArena {
             attacker = defender;
             defender = temp;
         }
+        // Display the winner of the game
         displayWinner();
     }
 
@@ -95,9 +98,13 @@ public class MagicalArena {
         int attackRoll = attackDice.roll();
         int defendRoll = defendDice.roll();
 
+        // Calculate the damage cause by the attacker to the defender
         int damage = Math.max(0, attackRoll * attacker.getAttack() - defendRoll * defender.getStrength());
+
+        // Calculate the remaining health of the defender after the attack
         defender.takeDamage(damage);
 
+        // Logs every turn between the players
         System.out.println(attacker.getName() + " attacks with roll " + attackRoll +
                 " and deals damage " + damage + ". " + defender.getName() +
                 " defends with roll " + defendRoll + ". " +
@@ -107,7 +114,7 @@ public class MagicalArena {
     /**
      * Displays the winner or declares a draw based on the players' health.
      */
-    
+
     private void displayWinner() {
         if (playerA.getHealth() == 0 && playerB.getHealth() == 0) {
             System.out.println("It's a draw!");
@@ -116,7 +123,7 @@ public class MagicalArena {
         } else if(playerB.getHealth() == 0){
             System.out.println("Player " + playerA.getName() + " wins!");
         } else {
-            System.out.println("Cannot proceed with the game, it will never finish!");
+            System.out.println("Cannot proceed with the game. Both players can't cause damage to each other!");
         }
     }
 }
