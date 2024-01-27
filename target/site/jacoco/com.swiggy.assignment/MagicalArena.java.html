@@ -20,48 +20,60 @@ public class MagicalArena {
 <span class="fc" id="L20">        this.defendDice = defendDice;</span>
 <span class="fc" id="L21">    }</span>
 
-    public void playGame() {
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        Player attacker = (playerA.getHealth() &lt; playerB.getHealth()) ? playerA : playerB;</span>
-<span class="pc bpc" id="L25" title="1 of 2 branches missed.">            Player defender = (attacker == playerA) ? playerB : playerA;</span>
+    private boolean isValidInput() {
+<span class="pc bpc" id="L24" title="1 of 4 branches missed.">        return !(playerA.getAttack()*6 &lt;= playerB.getStrength() &amp;&amp; playerB.getAttack()*6 &lt;= playerA.getStrength());</span>
+    }
 
-<span class="pc bpc" id="L27" title="2 of 4 branches missed.">        while (playerA.isAlive() &amp;&amp; playerB.isAlive()) {</span>
-            // Determine the player with lower health to attack first
-<span class="fc" id="L29">            playTurn(attacker, defender);</span>
+    public void playGame() {
+        // Determine the player with lower health to attack first
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        Player attacker = (playerA.getHealth() &lt; playerB.getHealth()) ? playerA : playerB;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            Player defender = (attacker == playerA) ? playerB : playerA;</span>
+
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">        while (playerA.isAlive() &amp;&amp; playerB.isAlive()) {</span>
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            if(!isValidInput()) {</span>
+<span class="fc" id="L35">                System.out.println(&quot;Invalid input: Both players cannot damage each other.&quot;);</span>
+<span class="fc" id="L36">                break;</span>
+            }
+
+<span class="fc" id="L39">            playTurn(attacker, defender);</span>
     
             // Check if the game has ended after the current turn
-<span class="fc bfc" id="L32" title="All 2 branches covered.">            if (!defender.isAlive()) {</span>
-<span class="fc" id="L33">                displayWinner();</span>
-<span class="fc" id="L34">                break;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (!defender.isAlive()) {</span>
+<span class="fc" id="L43">                break;</span>
             }
     
             // Swap roles for the next turn
-<span class="fc" id="L38">            Player temp = attacker;</span>
-<span class="fc" id="L39">            attacker = defender;</span>
-<span class="fc" id="L40">            defender = temp;</span>
-<span class="fc" id="L41">        }</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L47">            Player temp = attacker;</span>
+<span class="fc" id="L48">            attacker = defender;</span>
+<span class="fc" id="L49">            defender = temp;</span>
+<span class="fc" id="L50">        }</span>
+<span class="fc" id="L51">        displayWinner();</span>
+<span class="fc" id="L52">    }</span>
 
     private void playTurn(Player attacker, Player defender) {
-<span class="fc" id="L45">        int attackRoll = attackDice.roll();</span>
-<span class="fc" id="L46">        int defendRoll = defendDice.roll();</span>
+<span class="fc" id="L55">        int attackRoll = attackDice.roll();</span>
+<span class="fc" id="L56">        int defendRoll = defendDice.roll();</span>
 
-<span class="fc" id="L48">        int damage = Math.max(0, attackRoll * attacker.getAttack() - defendRoll * defender.getStrength());</span>
-<span class="fc" id="L49">        defender.takeDamage(damage);</span>
+<span class="fc" id="L58">        int damage = Math.max(0, attackRoll * attacker.getAttack() - defendRoll * defender.getStrength());</span>
+<span class="fc" id="L59">        defender.takeDamage(damage);</span>
 
-<span class="fc" id="L51">        System.out.println(attacker.getName() + &quot; attacks with roll &quot; + attackRoll +</span>
-<span class="fc" id="L52">                &quot; and deals damage &quot; + damage + &quot;. &quot; + defender.getName() +</span>
+<span class="fc" id="L61">        System.out.println(attacker.getName() + &quot; attacks with roll &quot; + attackRoll +</span>
+<span class="fc" id="L62">                &quot; and deals damage &quot; + damage + &quot;. &quot; + defender.getName() +</span>
                 &quot; defends with roll &quot; + defendRoll + &quot;. &quot; +
-<span class="fc" id="L54">                defender.getName() + &quot;'s health: &quot; + defender.getHealth());</span>
-<span class="fc" id="L55">    }</span>
+<span class="fc" id="L64">                defender.getName() + &quot;'s health: &quot; + defender.getHealth());</span>
+<span class="fc" id="L65">    }</span>
 
     private void displayWinner() {
-<span class="pc bpc" id="L58" title="1 of 4 branches missed.">        if (playerA.getHealth() == 0 &amp;&amp; playerB.getHealth() == 0) {</span>
-<span class="nc" id="L59">            System.out.println(&quot;It's a draw!&quot;);</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">        } else if (playerA.getHealth() == 0) {</span>
-<span class="fc" id="L61">            System.out.println(&quot;Player &quot; + playerB.getName() + &quot; wins!&quot;);</span>
+<span class="fc bfc" id="L68" title="All 4 branches covered.">        if (playerA.getHealth() == 0 &amp;&amp; playerB.getHealth() == 0) {</span>
+<span class="fc" id="L69">            System.out.println(&quot;It's a draw!&quot;);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        } else if (playerA.getHealth() == 0) {</span>
+<span class="fc" id="L71">            System.out.println(&quot;Player &quot; + playerB.getName() + &quot; wins!&quot;);</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        } else if(playerB.getHealth() == 0){</span>
+<span class="fc" id="L73">            System.out.println(&quot;Player &quot; + playerA.getName() + &quot; wins!&quot;);</span>
         } else {
-<span class="fc" id="L63">            System.out.println(&quot;Player &quot; + playerA.getName() + &quot; wins!&quot;);</span>
+<span class="fc" id="L75">            System.out.println(&quot;Cannot proceed with the game, it will never finish!&quot;);</span>
         }
-<span class="fc" id="L65">    }</span>
+<span class="fc" id="L77">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

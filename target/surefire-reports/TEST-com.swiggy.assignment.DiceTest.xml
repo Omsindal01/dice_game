@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.swiggy.assignment.DiceTest" time="1.022" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.swiggy.assignment.DiceTest" time="1.414" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.15.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\ompra\AppData\Local\Temp\surefire5356633686248186774\surefirebooter12284210259101688385.jar C:\Users\ompra\AppData\Local\Temp\surefire5356633686248186774 2024-01-27T13-26-13_686-jvmRun1 surefire16097108389215207744tmp surefire_06711130765189421266tmp"/>
+    <property name="sun.java.command" value="C:\Users\ompra\AppData\Local\Temp\surefire16918047774142057310\surefirebooter18267557634974381191.jar C:\Users\ompra\AppData\Local\Temp\surefire16918047774142057310 2024-01-27T13-57-23_491-jvmRun1 surefire10445144320103840311tmp surefire_03836950901224999777tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Java_Projects\Java\swiggyAssignment\dice-game\target\test-classes;D:\Java_Projects\Java\swiggyAssignment\dice-game\target\classes;C:\Users\ompra\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\ompra\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\ompra\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ompra\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\ompra\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\ompra\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ompra\.m2\repository\org\mockito\mockito-core\4.1.0\mockito-core-4.1.0.jar;C:\Users\ompra\.m2\repository\net\bytebuddy\byte-buddy\1.12.1\byte-buddy-1.12.1.jar;C:\Users\ompra\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.1\byte-buddy-agent-1.12.1.jar;C:\Users\ompra\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\ompra\.m2\repository\org\mockito\mockito-junit-jupiter\4.1.0\mockito-junit-jupiter-4.1.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ompra\AppData\Local\Temp\surefire5356633686248186774\surefirebooter12284210259101688385.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ompra\AppData\Local\Temp\surefire16918047774142057310\surefirebooter18267557634974381191.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.15.1+2-LTS-10"/>
@@ -60,5 +60,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testRoll" classname="com.swiggy.assignment.DiceTest" time="1.021"/>
+  <testcase name="testRoll" classname="com.swiggy.assignment.DiceTest" time="1.411"/>
 </testsuite>

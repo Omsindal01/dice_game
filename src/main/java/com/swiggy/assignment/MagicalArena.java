@@ -20,17 +20,26 @@ public class MagicalArena {
         this.defendDice = defendDice;
     }
 
+    private boolean isValidInput() {
+        return !(playerA.getAttack()*6 <= playerB.getStrength() && playerB.getAttack()*6 <= playerA.getStrength());
+    }
+
     public void playGame() {
+        // Determine the player with lower health to attack first
         Player attacker = (playerA.getHealth() < playerB.getHealth()) ? playerA : playerB;
             Player defender = (attacker == playerA) ? playerB : playerA;
 
         while (playerA.isAlive() && playerB.isAlive()) {
-            // Determine the player with lower health to attack first
+
+            if(!isValidInput()) {
+                System.out.println("Invalid input: Both players cannot damage each other.");
+                break;
+            }
+
             playTurn(attacker, defender);
     
             // Check if the game has ended after the current turn
             if (!defender.isAlive()) {
-                displayWinner();
                 break;
             }
     
@@ -39,6 +48,7 @@ public class MagicalArena {
             attacker = defender;
             defender = temp;
         }
+        displayWinner();
     }
 
     private void playTurn(Player attacker, Player defender) {
@@ -59,8 +69,10 @@ public class MagicalArena {
             System.out.println("It's a draw!");
         } else if (playerA.getHealth() == 0) {
             System.out.println("Player " + playerB.getName() + " wins!");
-        } else {
+        } else if(playerB.getHealth() == 0){
             System.out.println("Player " + playerA.getName() + " wins!");
+        } else {
+            System.out.println("Cannot proceed with the game, it will never finish!");
         }
     }
 }
