@@ -58,6 +58,12 @@ After building the project, you can run the game using the provided `App` class.
 mvn exec:java
 ```
 
+or
+
+```bash
+java -cp target/dice-game-1.0-SNAPSHOT.jar com.swiggy.assignment.App
+```
+
 Upon running the game you will be asked to enter the health, strength & attack attributes fo both the players PlayerA and PlayerB. Upon providing these attributes you will be able to see the result of every turn/attack between the players, how much damage caused in that turn & the final result of the game.
 
 The code coverage report can be found in the directory "/target/site/jacoco/index.html". The line coverage is 68% and branch coverage is 92%.
@@ -70,5 +76,7 @@ The code coverage report can be found in the directory "/target/site/jacoco/inde
 - The game ends when a player's health reaches zero.
 
 ## Contributing
+
+If you'd like to contribute to the project, feel free to fork the repository and submit pull requests.
 
 ## License
