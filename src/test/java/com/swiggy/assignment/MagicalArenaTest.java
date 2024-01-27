@@ -6,7 +6,9 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * Unit tests for the MagicalArena class.
+ */
 
 public class MagicalArenaTest {
 
@@ -14,9 +16,17 @@ public class MagicalArenaTest {
     private Player playerB;
     private MagicalArena magicalArena;
 
+     /**
+     * Sets up the test environment before each test method.
+     */
+
     @BeforeEach
     public void setUp() {
     }
+
+    /**
+     * Tests the playGame method when Player A wins.
+     */
 
     @Test
     public void testPlayGame_PlayerAWins() {
@@ -40,6 +50,10 @@ public class MagicalArenaTest {
         assertTrue(playerA.isAlive());
     }
 
+    /**
+     * Tests the playGame method when Player B wins.
+     */
+
     @Test
     public void testPlayGame_PlayerBWins() {
         // Mock the dice rolls to control the game flow
@@ -61,6 +75,10 @@ public class MagicalArenaTest {
         assertTrue(playerB.isAlive());
         assertFalse(playerA.isAlive());
     }
+
+    /**
+     * Tests the playGame method when the game ends in a draw.
+     */
 
     @Test
     public void testPlayGame_Draw() {
@@ -84,6 +102,10 @@ public class MagicalArenaTest {
         assertFalse(playerA.isAlive());
     }
 
+    /**
+     * Tests the playGame method when the game is cancelled, because it will run forever as both players can't damage each other.
+     */
+
     @Test
     public void testPlayGame_cancelled() {
         // Mock the dice rolls to control the game flow
@@ -93,8 +115,8 @@ public class MagicalArenaTest {
         Dice mockAttackDice = mock(Dice.class);
         Dice mockDefendDice = mock(Dice.class);
 
-        when(mockAttackDice.roll()).thenReturn(6);  // Player A attack roll
-        when(mockDefendDice.roll()).thenReturn(1);  // Player B defend roll
+        when(mockAttackDice.roll()).thenReturn(6); 
+        when(mockDefendDice.roll()).thenReturn(1);
 
         // Create MagicalArena with mock Dice instances
         magicalArena = new MagicalArena(playerA, playerB, mockAttackDice, mockDefendDice);

@@ -11,12 +11,20 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * Unit tests for the Dice class using Mockito for mocking the Random object.
+ */
+
 @ExtendWith(MockitoExtension.class)
 public class DiceTest {
 
     // Mock the Random object
     @Mock
     private Random random;
+
+    /**
+     * Tests the roll method of the Dice class.
+     */
 
     @Test
     public void testRoll() {
@@ -29,7 +37,7 @@ public class DiceTest {
         // Call the roll method
         int result = dice.roll();
 
-        // Verify that the result is the expected value (which is 3 in this case)
+        // Verify that the result is the expected value 
         assertEquals(4, result);
     }
 }

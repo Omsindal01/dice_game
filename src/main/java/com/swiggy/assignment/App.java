@@ -3,18 +3,21 @@ package com.swiggy.assignment;
 import java.util.Scanner;
 
 /**
- * This is the Main class.
+ * The main application class.
+ * This class takes user input for two players (Player A and Player B) and initializes the MagicalArena to simulate a game.
  */
 
 public class App {
 
-    /** 
-    * This is the main method which makes use of playGame method. 
-    * @param args Unused. 
-    * @return Nothing. 
-    */
+    /**
+     * The main method to start the application.
+     *
+     * @param args Command line arguments (not used in this application).
+     * @throws Exception If an exception occurs during the execution of the game.
+     */
 
     public static void main(String[] args) throws Exception {
+        // Create a Scanner to read user input
         Scanner scanner = new Scanner(System.in);
 
         try{
@@ -43,11 +46,13 @@ public class App {
         // Creating Player instances
         Player playerA = new Player(nameA, healthA, strengthA, attackA);
         Player playerB = new Player(nameB, healthB, strengthB, attackB);
-
+        
+        // Creating MagicalArena instance
         MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);
         magicalArena.playGame();
+
     } finally {
-        // Close the scanner in a finally block to ensure it gets closed even if an exception occurs
+         // Close the Scanner to prevent resource leak
         scanner.close();
     }
     }

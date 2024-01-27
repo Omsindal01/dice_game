@@ -1,10 +1,23 @@
 package com.swiggy.assignment;
 
+/**
+ * The MagicalArena class represents the arena where two players engage in a magical battle.
+ * It orchestrates the turns and displays the game results.
+ */
+
 public class MagicalArena {
     private Player playerA;
     private Player playerB;
     private Dice attackDice;
     private Dice defendDice;
+
+    /**
+     * Constructs a MagicalArena with two players and the number of sides on the dice.
+     *
+     * @param playerA The first player.
+     * @param playerB The second player.
+     * @param sides   The number of sides on the dice.
+     */
 
     public MagicalArena(Player playerA, Player playerB, int sides) {
         this.playerA = playerA;
@@ -13,6 +26,16 @@ public class MagicalArena {
         this.defendDice = new Dice(sides);
     }
 
+    /**
+     * Constructor for Unit testing.
+     * Constructs a MagicalArena with two players and custom attack and defend dice.
+     *
+     * @param playerA     The first player.
+     * @param playerB     The second player.
+     * @param attackDice  Mock attack dice.
+     * @param defendDice  Mock defend dice.
+     */
+
     public MagicalArena(Player playerA, Player playerB, Dice attackDice, Dice defendDice) {
         this.playerA = playerA;
         this.playerB = playerB;
@@ -20,14 +43,24 @@ public class MagicalArena {
         this.defendDice = defendDice;
     }
 
+    /**
+     * Checks if the input is valid for the game.
+     *
+     * @return Flase if both players can't damage each other, true otherwise.
+     */
+
     private boolean isValidInput() {
         return !(playerA.getAttack()*6 <= playerB.getStrength() && playerB.getAttack()*6 <= playerA.getStrength());
     }
 
+    /**
+     * Plays the magical game between two players, taking turns until one player's health reaches 0.
+     */
+
     public void playGame() {
         // Determine the player with lower health to attack first
         Player attacker = (playerA.getHealth() < playerB.getHealth()) ? playerA : playerB;
-            Player defender = (attacker == playerA) ? playerB : playerA;
+        Player defender = (attacker == playerA) ? playerB : playerA;
 
         while (playerA.isAlive() && playerB.isAlive()) {
 
@@ -51,6 +84,13 @@ public class MagicalArena {
         displayWinner();
     }
 
+    /**
+     * Plays a single turn between an attacker and a defender.
+     *
+     * @param attacker The player attacking.
+     * @param defender The player defending.
+     */
+
     private void playTurn(Player attacker, Player defender) {
         int attackRoll = attackDice.roll();
         int defendRoll = defendDice.roll();
@@ -64,6 +104,10 @@ public class MagicalArena {
                 defender.getName() + "'s health: " + defender.getHealth());
     }
 
+    /**
+     * Displays the winner or declares a draw based on the players' health.
+     */
+    
     private void displayWinner() {
         if (playerA.getHealth() == 0 && playerB.getHealth() == 0) {
             System.out.println("It's a draw!");
