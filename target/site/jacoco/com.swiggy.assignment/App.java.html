@@ -2,38 +2,59 @@
 
 import java.util.Scanner;
 
-<span class="nc" id="L5">public class App {</span>
-    public static void main(String[] args) throws Exception {
-<span class="nc" id="L7">        Scanner scanner = new Scanner(System.in);</span>
+/**
+ * The main application class.
+ * This class takes user input for two players (Player A and Player B) and initializes the MagicalArena to simulate a game.
+ */
 
+<span class="nc" id="L10">public class App {</span>
+
+    /**
+     * The main method to start the application.
+     *
+     * @param args Command line arguments (not used in this application).
+     * @throws Exception If an exception occurs during the execution of the game.
+     */
+
+    public static void main(String[] args) throws Exception {
+        // Create a Scanner to read user input
+<span class="nc" id="L21">        Scanner scanner = new Scanner(System.in);</span>
+
+        try{
         // Input for Player A
-<span class="nc" id="L10">        System.out.println(&quot;Enter details for Player A:&quot;);</span>
-<span class="nc" id="L11">        System.out.print(&quot;Name: &quot;);</span>
-<span class="nc" id="L12">        String nameA = scanner.next();</span>
-<span class="nc" id="L13">        System.out.print(&quot;Health: &quot;);</span>
-<span class="nc" id="L14">        int healthA = scanner.nextInt();</span>
-<span class="nc" id="L15">        System.out.print(&quot;Strength: &quot;);</span>
-<span class="nc" id="L16">        int strengthA = scanner.nextInt();</span>
-<span class="nc" id="L17">        System.out.print(&quot;Attack: &quot;);</span>
-<span class="nc" id="L18">        int attackA = scanner.nextInt();</span>
+<span class="nc" id="L25">        System.out.println(&quot;Enter details for Player A:&quot;);</span>
+<span class="nc" id="L26">        System.out.print(&quot;Name: &quot;);</span>
+<span class="nc" id="L27">        String nameA = scanner.next();</span>
+<span class="nc" id="L28">        System.out.print(&quot;Health: &quot;);</span>
+<span class="nc" id="L29">        int healthA = scanner.nextInt();</span>
+<span class="nc" id="L30">        System.out.print(&quot;Strength: &quot;);</span>
+<span class="nc" id="L31">        int strengthA = scanner.nextInt();</span>
+<span class="nc" id="L32">        System.out.print(&quot;Attack: &quot;);</span>
+<span class="nc" id="L33">        int attackA = scanner.nextInt();</span>
 
         // Input for Player B
-<span class="nc" id="L21">        System.out.println(&quot;Enter details for Player B:&quot;);</span>
-<span class="nc" id="L22">        System.out.print(&quot;Name: &quot;);</span>
-<span class="nc" id="L23">        String nameB = scanner.next();</span>
-<span class="nc" id="L24">        System.out.print(&quot;Health: &quot;);</span>
-<span class="nc" id="L25">        int healthB = scanner.nextInt();</span>
-<span class="nc" id="L26">        System.out.print(&quot;Strength: &quot;);</span>
-<span class="nc" id="L27">        int strengthB = scanner.nextInt();</span>
-<span class="nc" id="L28">        System.out.print(&quot;Attack: &quot;);</span>
-<span class="nc" id="L29">        int attackB = scanner.nextInt();</span>
+<span class="nc" id="L36">        System.out.println(&quot;Enter details for Player B:&quot;);</span>
+<span class="nc" id="L37">        System.out.print(&quot;Name: &quot;);</span>
+<span class="nc" id="L38">        String nameB = scanner.next();</span>
+<span class="nc" id="L39">        System.out.print(&quot;Health: &quot;);</span>
+<span class="nc" id="L40">        int healthB = scanner.nextInt();</span>
+<span class="nc" id="L41">        System.out.print(&quot;Strength: &quot;);</span>
+<span class="nc" id="L42">        int strengthB = scanner.nextInt();</span>
+<span class="nc" id="L43">        System.out.print(&quot;Attack: &quot;);</span>
+<span class="nc" id="L44">        int attackB = scanner.nextInt();</span>
 
         // Creating Player instances
-<span class="nc" id="L32">        Player playerA = new Player(nameA, healthA, strengthA, attackA);</span>
-<span class="nc" id="L33">        Player playerB = new Player(nameB, healthB, strengthB, attackB);</span>
+<span class="nc" id="L47">        Player playerA = new Player(nameA, healthA, strengthA, attackA);</span>
+<span class="nc" id="L48">        Player playerB = new Player(nameB, healthB, strengthB, attackB);</span>
+        
+        // Creating MagicalArena instance
+<span class="nc" id="L51">        MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);</span>
+<span class="nc" id="L52">        magicalArena.playGame();</span>
 
-<span class="nc" id="L35">        MagicalArena magicalArena = new MagicalArena(playerA, playerB, 6);</span>
-<span class="nc" id="L36">        magicalArena.playGame();</span>
-<span class="nc" id="L37">    }</span>
+    } finally {
+         // Close the Scanner to prevent resource leak
+<span class="nc" id="L56">        scanner.close();</span>
+    }
+<span class="nc" id="L58">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
