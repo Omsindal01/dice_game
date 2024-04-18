@@ -58,6 +58,7 @@ public class MagicalArena {
      */
 
     public void playGame() {
+        
         // Determine the player with lower health to attack first
         Player attacker = (playerA.getHealth() < playerB.getHealth()) ? playerA : playerB;
         Player defender = (attacker == playerA) ? playerB : playerA;

@@ -58,34 +58,35 @@ public class MagicalArena {
      */
 
     public void playGame() {
+        
         // Determine the player with lower health to attack first
-<span class="fc bfc" id="L62" title="All 2 branches covered.">        Player attacker = (playerA.getHealth() &lt; playerB.getHealth()) ? playerA : playerB;</span>
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        Player defender = (attacker == playerA) ? playerB : playerA;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        Player attacker = (playerA.getHealth() &lt; playerB.getHealth()) ? playerA : playerB;</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        Player defender = (attacker == playerA) ? playerB : playerA;</span>
 
         // The game will continue until both players has a health &gt; 0
-<span class="pc bpc" id="L66" title="1 of 4 branches missed.">        while (playerA.isAlive() &amp;&amp; playerB.isAlive()) {</span>
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">        while (playerA.isAlive() &amp;&amp; playerB.isAlive()) {</span>
 
             // The game needs to be stopped, if both players can't cause damage to each other, because it will run forever otherwise.
-<span class="fc bfc" id="L69" title="All 2 branches covered.">            if(!isValidInput()) {</span>
-<span class="fc" id="L70">                break;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            if(!isValidInput()) {</span>
+<span class="fc" id="L71">                break;</span>
             }
 
             // Players play a single turn of the game
-<span class="fc" id="L74">            playTurn(attacker, defender);</span>
+<span class="fc" id="L75">            playTurn(attacker, defender);</span>
     
             // Check if the game has ended after the current turn
-<span class="fc bfc" id="L77" title="All 2 branches covered.">            if (!defender.isAlive()) {</span>
-<span class="fc" id="L78">                break;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (!defender.isAlive()) {</span>
+<span class="fc" id="L79">                break;</span>
             }
     
             // Swap roles for the next turn
-<span class="fc" id="L82">            Player temp = attacker;</span>
-<span class="fc" id="L83">            attacker = defender;</span>
-<span class="fc" id="L84">            defender = temp;</span>
+<span class="fc" id="L83">            Player temp = attacker;</span>
+<span class="fc" id="L84">            attacker = defender;</span>
+<span class="fc" id="L85">            defender = temp;</span>
         }
         // Display the winner of the game
-<span class="fc" id="L87">        displayWinner();</span>
-<span class="fc" id="L88">    }</span>
+<span class="fc" id="L88">        displayWinner();</span>
+<span class="fc" id="L89">    }</span>
 
     /**
      * Plays a single turn between an attacker and a defender.
@@ -95,36 +96,36 @@ public class MagicalArena {
      */
 
     private void playTurn(Player attacker, Player defender) {
-<span class="fc" id="L98">        int attackRoll = attackDice.roll();</span>
-<span class="fc" id="L99">        int defendRoll = defendDice.roll();</span>
+<span class="fc" id="L99">        int attackRoll = attackDice.roll();</span>
+<span class="fc" id="L100">        int defendRoll = defendDice.roll();</span>
 
         // Calculate the damage cause by the attacker to the defender
-<span class="fc" id="L102">        int damage = Math.max(0, attackRoll * attacker.getAttack() - defendRoll * defender.getStrength());</span>
+<span class="fc" id="L103">        int damage = Math.max(0, attackRoll * attacker.getAttack() - defendRoll * defender.getStrength());</span>
 
         // Calculate the remaining health of the defender after the attack
-<span class="fc" id="L105">        defender.takeDamage(damage);</span>
+<span class="fc" id="L106">        defender.takeDamage(damage);</span>
 
         // Logs every turn between the players
-<span class="fc" id="L108">        System.out.println(attacker.getName() + &quot; attacks with roll &quot; + attackRoll +</span>
-<span class="fc" id="L109">                &quot; and deals damage &quot; + damage + &quot;. &quot; + defender.getName() +</span>
-<span class="fc" id="L110">                &quot; defends with roll &quot; + defendRoll + &quot;. &quot; +</span>
-<span class="fc" id="L111">                defender.getName() + &quot;'s health: &quot; + defender.getHealth());</span>
-<span class="fc" id="L112">    }</span>
+<span class="fc" id="L109">        System.out.println(attacker.getName() + &quot; attacks with roll &quot; + attackRoll +</span>
+<span class="fc" id="L110">                &quot; and deals damage &quot; + damage + &quot;. &quot; + defender.getName() +</span>
+<span class="fc" id="L111">                &quot; defends with roll &quot; + defendRoll + &quot;. &quot; +</span>
+<span class="fc" id="L112">                defender.getName() + &quot;'s health: &quot; + defender.getHealth());</span>
+<span class="fc" id="L113">    }</span>
 
     /**
      * Displays the winner or declares a draw based on the players' health.
      */
 
     private void displayWinner() {
-<span class="fc bfc" id="L119" title="All 4 branches covered.">        if (playerA.getHealth() == 0 &amp;&amp; playerB.getHealth() == 0) {</span>
-<span class="fc" id="L120">            System.out.println(&quot;It's a draw!&quot;);</span>
-<span class="fc bfc" id="L121" title="All 2 branches covered.">        } else if (playerA.getHealth() == 0) {</span>
-<span class="fc" id="L122">            System.out.println(&quot;Player &quot; + playerB.getName() + &quot; wins!&quot;);</span>
-<span class="fc bfc" id="L123" title="All 2 branches covered.">        } else if(playerB.getHealth() == 0){</span>
-<span class="fc" id="L124">            System.out.println(&quot;Player &quot; + playerA.getName() + &quot; wins!&quot;);</span>
-<span class="fc" id="L125">        } else {</span>
-<span class="fc" id="L126">            System.out.println(&quot;Cannot proceed with the game. Both players can't cause damage to each other!&quot;);</span>
+<span class="fc bfc" id="L120" title="All 4 branches covered.">        if (playerA.getHealth() == 0 &amp;&amp; playerB.getHealth() == 0) {</span>
+<span class="fc" id="L121">            System.out.println(&quot;It's a draw!&quot;);</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        } else if (playerA.getHealth() == 0) {</span>
+<span class="fc" id="L123">            System.out.println(&quot;Player &quot; + playerB.getName() + &quot; wins!&quot;);</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">        } else if(playerB.getHealth() == 0){</span>
+<span class="fc" id="L125">            System.out.println(&quot;Player &quot; + playerA.getName() + &quot; wins!&quot;);</span>
+<span class="fc" id="L126">        } else {</span>
+<span class="fc" id="L127">            System.out.println(&quot;Cannot proceed with the game. Both players can't cause damage to each other!&quot;);</span>
         }
-<span class="fc" id="L128">    }</span>
+<span class="fc" id="L129">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
