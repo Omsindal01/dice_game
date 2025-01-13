@@ -42,6 +42,15 @@
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version> <!-- You can use a later version if necessary -->
+            <configuration>
+                <source>1.8</source> <!-- Set source to Java 8 (or later) -->
+                <target>1.8</target> <!-- Set target to Java 8 (or later) -->
+            </configuration>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
